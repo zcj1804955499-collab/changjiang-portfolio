@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rocket, Code, TrendingDown, Video, ChevronUp, GraduationCap, Award, Camera, ShoppingBag, Users, Mic, Car } from 'lucide-react';
+import { Rocket, Code, TrendingDown, Video, ChevronUp, GraduationCap, Award, Camera, ShoppingBag, Users, Mic, Car, Flag, Megaphone } from 'lucide-react';
 
 export const Timeline = () => {
   return (
@@ -44,15 +44,15 @@ export const Timeline = () => {
           <div className="flex justify-end items-center relative w-full">
             <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-white border-[4px] border-black rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20"></div>
             <div className="w-[45%] pl-8">
-              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#e31937] transition-all flex items-center justify-between gap-4">
+              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ff5263] transition-all flex items-center justify-between gap-4">
                 <div className="flex-1 text-right">
                   <div className="flex items-center justify-end gap-3 mb-1">
-                    <span className="font-black text-lg">2026.03</span>
+                    <span className="font-black text-lg">2026.09</span>
                     <span className="bg-black text-white text-xs font-bold px-2 py-0.5">支线</span>
                   </div>
                   <p className="font-bold text-base leading-tight">登录特斯拉对外事务部，负责PR➕GR事务，解锁车企新身份🚗</p>
                 </div>
-                <div className="w-10 h-10 bg-[#e31937] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
+                <div className="w-10 h-10 bg-[#ff5263] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
                   <Car className="text-white" size={20} strokeWidth={3} />
                 </div>
               </div>
@@ -63,7 +63,7 @@ export const Timeline = () => {
           <div className="flex justify-end items-center relative w-full">
             <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-white border-[4px] border-black rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20"></div>
             <div className="w-[45%] pl-8">
-              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ff5263] transition-all flex items-center justify-between gap-4">
+              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#2575fc] transition-all flex items-center justify-between gap-4">
                 <div className="flex-1 text-right">
                   <div className="flex items-center justify-end gap-3 mb-1">
                     <span className="font-black text-lg">2026.02</span>
@@ -71,7 +71,7 @@ export const Timeline = () => {
                   </div>
                   <p className="font-bold text-base leading-tight">开始vibe code，上线个人网站，解锁"代码+内容"双技能💻</p>
                 </div>
-                <div className="w-10 h-10 bg-[#ff5263] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
+                <div className="w-10 h-10 bg-[#2575fc] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
                   <Code className="text-white" size={20} strokeWidth={3} />
                 </div>
               </div>
@@ -82,7 +82,7 @@ export const Timeline = () => {
           <div className="flex justify-end items-center relative w-full">
             <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-white border-[4px] border-black rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20"></div>
             <div className="w-[45%] pl-8">
-              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ffb822] transition-all flex items-center justify-between gap-4">
+              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ff5263] transition-all flex items-center justify-between gap-4">
                 <div className="flex-1 text-right">
                   <div className="flex items-center justify-end gap-3 mb-1">
                     <span className="font-black text-lg">2025.10</span>
@@ -90,8 +90,27 @@ export const Timeline = () => {
                   </div>
                   <p className="font-bold text-base leading-tight">央广网实习记者，写稿40+，多篇全网推荐，从新媒体人进阶新闻人🎙️</p>
                 </div>
+                <div className="w-10 h-10 bg-[#ff5263] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
+                  <Mic className="text-white" size={20} strokeWidth={3} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Item - Right (Side Quest) - 党务 */}
+          <div className="flex justify-end items-center relative w-full">
+            <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-white border-[4px] border-black rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20"></div>
+            <div className="w-[45%] pl-8">
+              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ffb822] transition-all flex items-center justify-between gap-4">
+                <div className="flex-1 text-right">
+                  <div className="flex items-center justify-end gap-3 mb-1">
+                    <span className="font-black text-lg">2025.09</span>
+                    <span className="bg-black text-white text-xs font-bold px-2 py-0.5">支线</span>
+                  </div>
+                  <p className="font-bold text-base leading-tight">担任学生支部副书记，化身党务小能手，党日、发展、转接全都会</p>
+                </div>
                 <div className="w-10 h-10 bg-[#ffb822] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
-                  <Mic className="text-black" size={20} strokeWidth={3} />
+                  <Flag className="text-white" size={20} strokeWidth={3} />
                 </div>
               </div>
             </div>
@@ -148,7 +167,7 @@ export const Timeline = () => {
                   <p className="font-bold text-base leading-tight">兼职研究生辅导员，化身同学小管家，搞定综测和奖助贷，收获师生好评✨</p>
                 </div>
                 <div className="w-10 h-10 bg-[#ffb822] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
-                  <Users className="text-black" size={20} strokeWidth={3} />
+                  <Users className="text-white" size={20} strokeWidth={3} />
                 </div>
               </div>
             </div>
@@ -158,7 +177,7 @@ export const Timeline = () => {
           <div className="flex justify-end items-center relative w-full">
             <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-white border-[4px] border-black rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20"></div>
             <div className="w-[45%] pl-8">
-              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ff5263] transition-all flex items-center justify-between gap-4">
+              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ffb822] transition-all flex items-center justify-between gap-4">
                 <div className="flex-1 text-right">
                   <div className="flex items-center justify-end gap-3 mb-1">
                     <span className="font-black text-lg">2024.09</span>
@@ -166,7 +185,7 @@ export const Timeline = () => {
                   </div>
                   <p className="font-bold text-base leading-tight">成为校园新媒体打工人，推文阅读破万，解锁"写爆款"成就📈</p>
                 </div>
-                <div className="w-10 h-10 bg-[#ff5263] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
+                <div className="w-10 h-10 bg-[#ffb822] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
                   <Video className="text-white" size={20} strokeWidth={3} />
                 </div>
               </div>
@@ -196,7 +215,7 @@ export const Timeline = () => {
           <div className="flex justify-end items-center relative w-full">
             <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-white border-[4px] border-black rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20"></div>
             <div className="w-[45%] pl-8">
-              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ffb822] transition-all flex items-center justify-between gap-4">
+              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ff5263] transition-all flex items-center justify-between gap-4">
                 <div className="flex-1 text-right">
                   <div className="flex items-center justify-end gap-3 mb-1">
                     <span className="font-black text-lg">2023.12</span>
@@ -204,8 +223,27 @@ export const Timeline = () => {
                   </div>
                   <p className="font-bold text-base leading-tight">苏宁易购实习打工，靠市集和直播带货，把门店流量和业绩拉满💸</p>
                 </div>
+                <div className="w-10 h-10 bg-[#ff5263] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
+                  <ShoppingBag className="text-white" size={20} strokeWidth={3} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Item - Right (Side Quest) - 公众号 */}
+          <div className="flex justify-end items-center relative w-full">
+            <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-white border-[4px] border-black rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20"></div>
+            <div className="w-[45%] pl-8">
+              <div className="bg-white border-[3px] border-black rounded-xl px-4 py-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative group hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_#ffb822] transition-all flex items-center justify-between gap-4">
+                <div className="flex-1 text-right">
+                  <div className="flex items-center justify-end gap-3 mb-1">
+                    <span className="font-black text-lg">2022.06</span>
+                    <span className="bg-black text-white text-xs font-bold px-2 py-0.5">支线</span>
+                  </div>
+                  <p className="font-bold text-base leading-tight">负责搭建西南交通大学传播系公众号，公号运营从0到1</p>
+                </div>
                 <div className="w-10 h-10 bg-[#ffb822] border-[3px] border-black rounded-lg flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
-                  <ShoppingBag className="text-black" size={20} strokeWidth={3} />
+                  <Megaphone className="text-white" size={20} strokeWidth={3} />
                 </div>
               </div>
             </div>

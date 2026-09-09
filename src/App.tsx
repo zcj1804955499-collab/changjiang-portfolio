@@ -104,7 +104,7 @@ const ResumeModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
           <X size={24} strokeWidth={3} />
         </button>
         <img 
-          src="/简历.jpg" 
+          src="/简历国企版.jpg" 
           alt="简历" 
           className="max-w-[90vw] max-h-[85vh] rounded-2xl border-[4px] border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
         />
@@ -303,18 +303,13 @@ const AboutSection = () => {
           Welcome to 长江的世界<br />
         <span className="bg-[#2575fc] text-white px-4 py-1 inline-block transform -rotate-1 mt-2 hover:rotate-3 hover:scale-110 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 cursor-pointer">长江的世界</span>
         </h2>
-        <p className="text-gray-700 font-medium text-lg leading-relaxed">
+        <p className="text-gray-700 font-medium text-lg leading-relaxed ml-8">
           嗨，我是长江 <br />
-          2000年出生于四川德阳 <br />
-          爱玩、独立、喜欢尝试新事物 <br />
-          正在由I转E中，目前是ENTJ <br />
-          <br />
-          本科在西南交大开始接触到我现在的专业 <br />
-          也接触到很多实践的机会 <br />
-          进入西南大学继续读研后 <br />
-          我更加注重多样化的发展 <br />
-          拍照、视频、写稿…… <br />
-          总之，不断学习，保持进步。
+          来自四川德阳 <br />
+          正在西南大学读研ing <br />
+          一个能拍会剪的新传er <br />
+          如果你感兴趣的话 <br />
+          可以看看其他页面～
         </p>
       </div>
       <div className="flex-1 flex justify-center w-full">

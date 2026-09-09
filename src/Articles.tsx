@@ -80,15 +80,35 @@ export const Articles = () => {
 
       {/* Second section: 1 and 2 each on separate lines */}
       <div className="space-y-8">
+        {/* Article 4 Copy - duplicated above original */}
+          <div
+            onClick={() => window.open('https://www.zcool.com.cn/work/ZNzQxMjA3NTI=.html', '_blank')}
+            className="bg-white border-[3px] border-black rounded-[2rem] p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col sm:flex-row gap-8 flex-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 cursor-pointer">
+            <div className="bg-[#f3f3f3] rounded-2xl border-[3px] border-black w-full sm:w-56 h-56 relative flex items-center justify-center shrink-0 overflow-hidden">
+              <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1 rounded-full z-50">Vedio</span>
+              <img
+                src="/清风明月封面图.png"
+                alt="AI廉洁短片——清风明月"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-out"
+              />
+            </div>
+          <div className="flex flex-col justify-center py-4">
+            <h3 className="text-2xl font-bold mb-4 leading-tight">AI廉洁短片——清风明月</h3>
+            <p className="text-gray-600 font-medium leading-relaxed line-clamp-3">
+              跨越时空的对话，彰显廉洁底色
+            </p>
+          </div>
+        </div>
+
         {/* Article 4 (Copy 1) */}
-          <div 
+          <div
             onClick={() => window.open('https://www.zcool.com.cn/work/ZNzMzMTYwNjg=.html', '_blank')}
             className="bg-white border-[3px] border-black rounded-[2rem] p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col sm:flex-row gap-8 flex-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 cursor-pointer">
             <div className="bg-[#f3f3f3] rounded-2xl border-[3px] border-black w-full sm:w-56 h-56 relative flex items-center justify-center shrink-0 overflow-hidden">
               <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1 rounded-full z-50">Vedio</span>
-              <img 
-                src="/赵万民教授.png" 
-                alt="赵万民教授" 
+              <img
+                src="/赵万民教授.png"
+                alt="赵万民教授"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-out"
               />
             </div>
