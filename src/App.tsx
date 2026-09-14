@@ -136,12 +136,6 @@ const Hero = () => {
             >
               <User size={20} /> 了解更多
             </Link>
-            <button 
-              onClick={() => setIsResumeOpen(true)}
-              className="bg-white text-black px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:bg-gray-50 transition-all border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0px_0px_#ff5263] active:translate-y-1 active:translate-x-1 active:shadow-none"
-            >
-              <Briefcase size={20} /> 查看简历
-            </button>
           </div>
         </div>
         <div className="flex-1 flex justify-center lg:justify-end w-full">
