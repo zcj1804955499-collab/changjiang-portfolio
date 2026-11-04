@@ -28,9 +28,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">央广网</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -61,9 +61,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">重庆日报</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -94,9 +94,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">封面新闻</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -129,9 +129,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">旅行部落</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -162,9 +162,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">西大研会</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -195,9 +195,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">西南交大传播系</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -228,9 +228,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">新华网</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -261,9 +261,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">央广网</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -294,9 +294,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">央广网</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -327,9 +327,9 @@ export const Portfolio = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">西大研会</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -349,7 +349,7 @@ export const Portfolio = () => {
 
         {/* More Articles Coming Soon */}
         <div className="bg-gray-100 border-[3px] border-gray-300 rounded-[2rem] p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center gap-4 flex-1">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="text-4xl animate-pulse">📝</span>
             <h3 className="text-2xl font-bold text-gray-700">更多文章正在陆续更新中</h3>
           </div>

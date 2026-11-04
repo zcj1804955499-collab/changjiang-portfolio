@@ -5,7 +5,7 @@ export const Articles = () => {
   return (
     <section id="articles" className="pt-48 pb-24 px-6 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-        <h2 className="text-5xl lg:text-6xl font-black">Vedio<span className="text-3xl lg:text-4xl mx-1">&amp;</span>Photo<span className="text-3xl lg:text-4xl mx-1">&amp;</span>More</h2>
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black">Vedio<span className="text-xl sm:text-3xl lg:text-4xl mx-1">&amp;</span>Photo<span className="text-xl sm:text-3xl lg:text-4xl mx-1">&amp;</span>More</h2>
       </div>
 
       {/* First section: left + right 2 columns */}

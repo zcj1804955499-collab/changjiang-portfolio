@@ -343,9 +343,9 @@ const PortfolioSection = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">央广网</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -376,9 +376,9 @@ const PortfolioSection = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">重庆日报</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -409,9 +409,9 @@ const PortfolioSection = () => {
             />
             <span className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded-full hover:scale-110 hover:rotate-6 transition-all duration-300 cursor-pointer z-50">Articles</span>
           </div>
-          <div className="flex flex-col justify-center py-2">
+          <div className="flex flex-col justify-center py-2 min-w-0">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>
                 <span className="text-gray-600 text-sm font-bold">封面新闻</span>
                 <span className="w-px h-4 bg-gray-300 mx-2"></span>
@@ -437,7 +437,7 @@ const ArticlesSection = () => {
   return (
     <section id="articles" className="py-24 px-6 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-        <h2 className="text-5xl lg:text-6xl font-black">Vedio<span className="text-3xl lg:text-4xl mx-1">&amp;</span>Photo<span className="text-3xl lg:text-4xl mx-1">&amp;</span>More</h2>
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black">Vedio<span className="text-xl sm:text-3xl lg:text-4xl mx-1">&amp;</span>Photo<span className="text-xl sm:text-3xl lg:text-4xl mx-1">&amp;</span>More</h2>
         <button 
           onClick={() => window.location.href = '/articles'}
           className="bg-white text-black px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:bg-green-500 hover:text-white hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:translate-x-1 active:shadow-none cursor-pointer"
@@ -564,13 +564,13 @@ export default function App() {
   return (
     <div className="font-sans text-black min-h-screen selection:bg-[#ffb822] selection:text-black">
       {/* Navbar */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl bg-white border-[3px] border-black rounded-full shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl bg-white border-[3px] border-black rounded-full shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] px-4 md:px-6 py-3 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <div className="w-10 h-10 rounded-full border-[3px] border-black flex items-center justify-center font-bold text-xl">
             <div className="w-4 h-4 bg-black rounded-full"></div>
           </div>
         </div>
-        <div className="hidden md:flex items-center gap-8 font-bold text-[15px]">
+        <div className="flex items-center gap-3 md:gap-8 font-bold text-[14px] md:text-[15px] whitespace-nowrap">
           <button onClick={() => scrollTo('home')} className={`hover:text-[#2575fc] transition-all hover:scale-110 hover:-rotate-2 active:scale-95 ${activeTab === 'home' && location.pathname === '/' ? 'text-[#2575fc]' : 'text-black'}`}>首页</button>
           <Link to="/about" className={`hover:text-[#2575fc] transition-all hover:scale-110 hover:rotate-2 active:scale-95 ${location.pathname === '/about' ? 'text-[#2575fc]' : 'text-black'}`}>关于我</Link>
           <Link to="/portfolio" className={`hover:text-[#2575fc] transition-all hover:scale-110 hover:rotate-2 active:scale-95 ${location.pathname === '/portfolio' ? 'text-[#2575fc]' : 'text-black'}`}>文章</Link>
