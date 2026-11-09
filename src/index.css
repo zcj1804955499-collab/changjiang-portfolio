@@ -42,6 +42,102 @@
 body {
   font-family: var(--font-sans);
   background-color: #fafafa;
-  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
-  background-size: 24px 24px;
+}
+
+/* 自定义光标（仅鼠标设备） */
+html.custom-cursor,
+html.custom-cursor * {
+  cursor: none !important;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* 黑色主体 + 白色外圈，深色、浅色、彩色背景上都清晰可见 */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #000;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+}
+
+/* 定位用外层的 transform，放大只作用在内层，避免缩放连同位置一起被放大 */
+.cursor-ring-inner {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #000;
+  border-radius: 9999px;
+  background-color: rgba(255, 184, 34, 0);
+  box-shadow: 0 0 0 2px #fff;
+  transition: scale 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.cursor-dot.is-visible,
+.cursor-ring.is-visible {
+  opacity: 1;
+}
+
+.cursor-ring.is-hover .cursor-ring-inner {
+  scale: 1.6;
+  border-color: #ffb822;
+  background-color: rgba(255, 184, 34, 0.12);
+  box-shadow: 0 0 0 2px #000, inset 0 0 0 2px #000;
+}
+
+.cursor-ring.is-down .cursor-ring-inner {
+  scale: 0.75;
+  border-color: #ff5263;
+  background-color: rgba(255, 82, 99, 0.15);
+  box-shadow: 0 0 0 2px #000, inset 0 0 0 2px #000;
+}
+
+/* 悬停上浮的元素：在下方多留一段点击区域，避免上浮后指针滑出元素、悬停状态来回抖动 */
+[class*="hover:-translate-y-"]:not(.absolute):not(.fixed) {
+  position: relative;
+}
+
+[class*="hover:-translate-y-"]:not(.overflow-hidden)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 10px;
+}
+
+/* 滚动进入动效 */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal]:not(.is-revealed) {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+
+  [data-reveal].is-revealed {
+    animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+  }
 }

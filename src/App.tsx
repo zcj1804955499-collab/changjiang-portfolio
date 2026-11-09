@@ -4,6 +4,8 @@ import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom'
 import { About } from './About';
 import { Articles } from './Articles';
 import { Portfolio } from './Portfolio';
+import { BackgroundGrid, CustomCursor } from './CursorEffects';
+import { useScrollReveal } from './useScrollReveal';
 
 const ContactModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   const [isClosing, setIsClosing] = useState(false);
@@ -151,9 +153,9 @@ const Hero = () => {
 
 const Services = () => {
   const stats = [
-    { value: "50w+", label: "稿件平均阅读量" },
-    { value: "百万级", label: "短视频播放" },
-    { value: "全网推荐", label: "中央网信办多篇推荐" }
+    { value: "50w+", label: "稿件平均阅读量", gradient: "from-[#fff3d1] to-[#ffd47a]" },
+    { value: "百万级", label: "短视频播放", gradient: "from-[#ffe3e7] to-[#ff9fab]" },
+    { value: "全网推荐", label: "中央网信办多篇推荐", gradient: "from-[#e0ecff] to-[#9bbcff]" }
   ];
 
   const tools = [
@@ -198,11 +200,17 @@ const Services = () => {
         做有意义的事 <br /> Do something meaningful!
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-left">
+      <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto mb-10 text-left">
         {stats.map((s, i) => (
-          <div key={i} className="bg-[#ffb822] border-[3px] border-black rounded-2xl px-6 py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <div className="text-3xl font-black">{s.value}</div>
-            <div className="text-sm font-bold text-black/70">{s.label}</div>
+          <div
+            key={i}
+            className={`group relative bg-linear-to-br ${s.gradient} border-[3px] border-black rounded-2xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1.5 hover:-rotate-2 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-y-0 active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 cursor-default`}
+          >
+            <span className="absolute inset-0 overflow-hidden rounded-[inherit] pointer-events-none">
+              <span className="absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/50 -translate-x-full group-hover:translate-x-[500%] transition-transform duration-700 ease-out" />
+            </span>
+            <div className="relative text-xl sm:text-2xl font-black origin-left transition-transform duration-300 group-hover:scale-110">{s.value}</div>
+            <div className="relative text-[11px] sm:text-xs font-bold text-black/60 leading-snug">{s.label}</div>
           </div>
         ))}
       </div>
@@ -467,6 +475,8 @@ export default function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  useScrollReveal(location.pathname);
+
   useEffect(() => {
     if (location.pathname !== '/') return;
 
@@ -506,6 +516,9 @@ export default function App() {
 
   return (
     <div className="font-sans text-black min-h-screen selection:bg-[#ffb822] selection:text-black">
+      <BackgroundGrid />
+      <CustomCursor />
+
       {/* Navbar */}
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl bg-white border-[3px] border-black rounded-full shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] px-4 md:px-6 py-3 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 shrink-0">
