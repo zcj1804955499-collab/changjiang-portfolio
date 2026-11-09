@@ -1,100 +1,79 @@
 import React, { useEffect, useRef } from 'react';
 
-const PALETTE = ['#ff5263', '#ffb822', '#2575fc'];
-const GAP = 24;
-const RADIUS = 170;
-const PULSE_MS = 700;
 const INTERACTIVE = 'a, button, [role="button"], .cursor-pointer';
 
-/** 固定在页面背后的圆点网格：鼠标靠近时圆点放大、变色并被轻轻推开，点击时扩散一圈涟漪。 */
-export const BackgroundGrid = () => {
+// 颜色依次渐变：蓝 → 紫 → 粉 → 橘 → 黄，再倒着回来。相邻颜色之间不会出现发灰的过渡色
+const STOPS: [number, number, number][] = [
+  [110, 160, 255],
+  [170, 150, 255],
+  [255, 140, 170],
+  [255, 185, 125],
+  [255, 208, 100]
+];
+const TRAIL_MS = 700;
+const RIPPLE_MS = 900;
+
+const colorAt = (distance: number) => {
+  const span = STOPS.length - 1;
+  const phase = (distance / 260) % (span * 2);
+  const t = phase <= span ? phase : span * 2 - phase;
+  const i = Math.min(Math.floor(t), span - 1);
+  const f = t - i;
+  return STOPS[i].map((c, k) => Math.round(c + (STOPS[i + 1][k] - c) * f));
+};
+
+/** 固定在页面背后的柔光层：鼠标移动时拖出一条渐变色的光尾并慢慢消散，点击时扩散一圈光环。 */
+export const BackgroundGlow = () => {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = ref.current;
     const ctx = canvas?.getContext('2d');
     if (!canvas || !ctx) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const mouse = { x: -1000, y: -1000, tx: -1000, ty: -1000, s: 0, ts: 0 };
-    let pulse: { x: number; y: number; t0: number } | null = null;
+    const trail: { x: number; y: number; c: number[]; t0: number }[] = [];
+    let ripple: { x: number; y: number; t0: number } | null = null;
+    let last: { x: number; y: number } | null = null;
+    let travelled = 0;
     let w = 0;
     let h = 0;
     let raf = 0;
 
     const draw = (now: number) => {
       raf = 0;
-      mouse.x += (mouse.tx - mouse.x) * 0.2;
-      mouse.y += (mouse.ty - mouse.y) * 0.2;
-      mouse.s += (mouse.ts - mouse.s) * 0.12;
-
-      let pr = -1;
-      if (pulse) {
-        pr = (now - pulse.t0) / PULSE_MS;
-        if (pr >= 1) {
-          pulse = null;
-          pr = -1;
-        }
-      }
-      const ringR = pr * 320;
-
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = '#d1d5db';
-      ctx.beginPath();
-      const active: { x: number; y: number; k: number; c: string }[] = [];
 
-      for (let gy = 0; gy * GAP < h + GAP; gy++) {
-        for (let gx = 0; gx * GAP < w + GAP; gx++) {
-          const bx = gx * GAP + GAP / 2;
-          const by = gy * GAP + GAP / 2;
-          let influence = 0;
-          let ox = 0;
-          let oy = 0;
+      while (trail.length && now - trail[0].t0 > TRAIL_MS) trail.shift();
+      for (const p of trail) {
+        const life = 1 - (now - p.t0) / TRAIL_MS;
+        const r = 40 + 70 * life;
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r);
+        g.addColorStop(0, `rgba(${p.c[0]}, ${p.c[1]}, ${p.c[2]}, ${0.3 * life})`);
+        g.addColorStop(1, `rgba(${p.c[0]}, ${p.c[1]}, ${p.c[2]}, 0)`);
+        ctx.fillStyle = g;
+        ctx.fillRect(p.x - r, p.y - r, r * 2, r * 2);
+      }
 
-          const dx = bx - mouse.x;
-          const dy = by - mouse.y;
-          const d = Math.hypot(dx, dy);
-          if (mouse.s > 0.01 && d < RADIUS) {
-            const t = 1 - d / RADIUS;
-            influence = t * t * mouse.s;
-            if (d > 0.01) {
-              ox = (dx / d) * influence * 12;
-              oy = (dy / d) * influence * 12;
-            }
-          }
-
-          let boost = 0;
-          if (pulse) {
-            const pd = Math.hypot(bx - pulse.x, by - pulse.y);
-            boost = (1 - Math.min(1, Math.abs(pd - ringR) / 36)) * (1 - pr);
-          }
-
-          const k = Math.max(influence, boost);
-          if (k < 0.01) {
-            ctx.moveTo(bx + 1, by);
-            ctx.arc(bx, by, 1, 0, Math.PI * 2);
-          } else {
-            active.push({ x: bx + ox, y: by + oy, k, c: PALETTE[(gx + gy) % PALETTE.length] });
-          }
+      if (ripple) {
+        const t = (now - ripple.t0) / RIPPLE_MS;
+        if (t >= 1) {
+          ripple = null;
+        } else {
+          const r = 20 + (1 - Math.pow(1 - t, 3)) * 200;
+          const c = colorAt(travelled);
+          const g = ctx.createRadialGradient(ripple.x, ripple.y, r * 0.6, ripple.x, ripple.y, r);
+          g.addColorStop(0, `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0)`);
+          g.addColorStop(0.85, `rgba(${c[0]}, ${c[1]}, ${c[2]}, ${0.3 * (1 - t)})`);
+          g.addColorStop(1, `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0)`);
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(ripple.x, ripple.y, r, 0, Math.PI * 2);
+          ctx.fill();
         }
       }
-      ctx.fill();
 
-      for (const a of active) {
-        ctx.globalAlpha = 0.3 + 0.7 * a.k;
-        ctx.fillStyle = a.c;
-        ctx.beginPath();
-        ctx.arc(a.x, a.y, 1 + a.k * 3.5, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-
-      const busy =
-        pulse ||
-        Math.abs(mouse.tx - mouse.x) > 0.3 ||
-        Math.abs(mouse.ty - mouse.y) > 0.3 ||
-        Math.abs(mouse.ts - mouse.s) > 0.01;
-      if (busy) raf = requestAnimationFrame(draw);
+      if (trail.length || ripple) raf = requestAnimationFrame(draw);
     };
 
     const request = () => {
@@ -115,31 +94,28 @@ export const BackgroundGrid = () => {
 
     const onMove = (e: PointerEvent) => {
       if (e.pointerType === 'touch') return;
-      if (mouse.ts === 0) {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
+      if (last) {
+        const d = Math.hypot(e.clientX - last.x, e.clientY - last.y);
+        if (d < 8) return;
+        travelled += d;
       }
-      mouse.tx = e.clientX;
-      mouse.ty = e.clientY;
-      mouse.ts = 1;
+      last = { x: e.clientX, y: e.clientY };
+      trail.push({ x: e.clientX, y: e.clientY, c: colorAt(travelled), t0: performance.now() });
       request();
     };
     const onLeave = () => {
-      mouse.ts = 0;
-      request();
+      last = null;
     };
     const onDown = (e: PointerEvent) => {
-      pulse = { x: e.clientX, y: e.clientY, t0: performance.now() };
+      ripple = { x: e.clientX, y: e.clientY, t0: performance.now() };
       request();
     };
 
     window.addEventListener('resize', resize);
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerdown', onDown);
+    document.documentElement.addEventListener('mouseleave', onLeave);
     resize();
-    if (!reduceMotion) {
-      window.addEventListener('pointermove', onMove);
-      window.addEventListener('pointerdown', onDown);
-      document.documentElement.addEventListener('mouseleave', onLeave);
-    }
 
     return () => {
       cancelAnimationFrame(raf);

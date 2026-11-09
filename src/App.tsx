@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Briefcase, User, ArrowRight, PenTool, Layout, Smartphone, X, Send, Calendar } from 'lucide-react';
+import { Mail, Briefcase, User, ArrowRight, PenTool, Layout, Smartphone, X, Send, Calendar, GraduationCap, MapPin } from 'lucide-react';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { About } from './About';
 import { Articles } from './Articles';
 import { Portfolio } from './Portfolio';
-import { BackgroundGrid, CustomCursor } from './CursorEffects';
+import { BackgroundGlow, CustomCursor } from './CursorEffects';
 import { useScrollReveal } from './useScrollReveal';
 
 const ContactModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
@@ -148,6 +148,70 @@ const Hero = () => {
       </section>
       <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </>
+  );
+};
+
+const Education = () => {
+  const schools = [
+    {
+      level: "硕士",
+      major: "新闻与传播",
+      school: "西南大学",
+      city: "重庆",
+      period: "2024.09 — 2027.06",
+      highlights: ["专业成绩排名 1 / 51", "研究生一等奖学金"],
+      band: "bg-[#2575fc] text-white",
+      hover: "hover:shadow-[10px_10px_0px_0px_#2575fc]"
+    },
+    {
+      level: "本科",
+      major: "传播学",
+      school: "西南交通大学",
+      city: "成都",
+      period: "2020.09 — 2024.06",
+      highlights: ["专业排名前 20%"],
+      band: "bg-[#ffb822] text-black",
+      hover: "hover:shadow-[10px_10px_0px_0px_#ffb822]"
+    }
+  ];
+
+  return (
+    <section className="pt-4 pb-12 px-6 max-w-5xl mx-auto text-center">
+      <h2 className="text-4xl sm:text-5xl font-black mb-8">
+        我的<span className="bg-[#2575fc] text-white px-4 py-1 inline-block transform -rotate-1 hover:-rotate-3 hover:scale-110 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 cursor-pointer">教育背景</span>
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        {schools.map((e) => (
+          <div
+            key={e.level}
+            className={`bg-white border-[3px] border-black rounded-3xl shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 ${e.hover} transition-all duration-300 cursor-default`}
+          >
+            <div className={`${e.band} px-5 py-2 border-b-[3px] border-black rounded-t-[1.3rem] flex items-center justify-between`}>
+              <span className="text-sm font-black tracking-wide">{e.level} · {e.period}</span>
+              <GraduationCap size={20} strokeWidth={2.5} />
+            </div>
+            <div className="px-5 py-4 space-y-2.5">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h3 className="text-2xl font-black">{e.major}</h3>
+                <span className="text-base font-bold text-gray-800">{e.school}</span>
+                <span className="inline-flex items-center gap-0.5 text-xs font-bold text-gray-500">
+                  <MapPin size={12} />{e.city}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {["211", "双一流"].map((t) => (
+                  <span key={t} className="bg-white border-[2px] border-black rounded-full px-2.5 py-px text-[11px] font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{t}</span>
+                ))}
+                {e.highlights.map((h) => (
+                  <span key={h} className="bg-[#fff3d1] border-[2px] border-black rounded-full px-2.5 py-px text-[11px] font-bold">{h}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
@@ -516,7 +580,7 @@ export default function App() {
 
   return (
     <div className="font-sans text-black min-h-screen selection:bg-[#ffb822] selection:text-black">
-      <BackgroundGrid />
+      <BackgroundGlow />
       <CustomCursor />
 
       {/* Navbar */}
@@ -549,6 +613,7 @@ export default function App() {
           <Route path="/" element={
             <>
               <Hero />
+              <Education />
               <Services />
               <PortfolioSection />
               <ArticlesSection />
