@@ -150,140 +150,83 @@ const Hero = () => {
 };
 
 const Services = () => {
-  const services = [
-    {
-      title: "内容生产",
-      desc: "精通内容生产，擅长热点选题挖掘，能独立完成稿件撰写、摄影及视频拍剪；产出稿件平均阅读量 50w+，多篇获中央网信办全网推荐，兼具内容专业性与传播性。",
-      icon: (
-        <svg viewBox="0 0 100 100" className="w-24 h-24" xmlns="http://www.w3.org/2000/svg">
-          {/* 笔记本背景 */}
-          <rect x="15" y="20" width="70" height="60" rx="6" fill="#fff" stroke="#000" strokeWidth="3" />
-          
-          {/* 笔记本装订线 */}
-          <rect x="15" y="20" width="8" height="60" fill="#ffb822" stroke="#000" strokeWidth="2" />
-          
-          {/* 标题行 */}
-          <rect x="30" y="28" width="50" height="6" rx="2" fill="#ff5263" />
-          
-          {/* 内容行 */}
-          <rect x="30" y="40" width="45" height="4" rx="1" fill="#2575fc" />
-          <rect x="30" y="48" width="40" height="4" rx="1" fill="#2575fc" />
-          <rect x="30" y="56" width="35" height="4" rx="1" fill="#2575fc" />
-          
-          {/* 相机图标 */}
-          <rect x="65" y="65" width="15" height="12" rx="2" fill="#fff" stroke="#000" strokeWidth="2" />
-          <circle cx="72" cy="69" r="2" fill="#000" />
-          <rect x="68" y="72" width="8" height="3" rx="1" fill="#000" />
-          
-          {/* 视频图标 */}
-          <rect x="50" y="65" width="12" height="12" rx="2" fill="#fff" stroke="#000" strokeWidth="2" />
-          <polygon points="54,68 54,74 60,71" fill="#ff5263" />
-          
-          {/* 笔 */}
-          <rect x="25" y="68" width="12" height="2" rx="1" fill="#ffb822" transform="rotate(45 25 68)" />
-          <rect x="25" y="68" width="8" height="2" rx="1" fill="#ffb822" transform="rotate(-45 25 68)" />
-        </svg>
-      )
-    },
-    {
-      title: "社交媒体运营",
-      desc: "熟悉微信、抖音、小红书等平台运营逻辑，账号运营、推文排版及短视频策划制作；擅长流量导向内容生产，打造多条百万级视频，兼具活动策划与流量转化能力。",
-      icon: (
-        <svg viewBox="0 0 100 100" className="w-24 h-24" xmlns="http://www.w3.org/2000/svg">
-          {/* 手机设备 */}
-          <rect x="25" y="15" width="50" height="70" rx="8" fill="#fff" stroke="#000" strokeWidth="3" />
-          
-          {/* 屏幕内容 */}
-          <rect x="30" y="20" width="40" height="45" rx="4" fill="#f3f3f3" />
-          
-          {/* 微信图标 */}
-          <rect x="35" y="25" width="15" height="15" rx="3" fill="#07c160" />
-          <rect x="37" y="27" width="11" height="11" rx="2" fill="#fff" />
-          <circle cx="42" cy="32" r="1" fill="#07c160" />
-          <circle cx="46" cy="32" r="1" fill="#07c160" />
-          
-          {/* 抖音图标 */}
-          <rect x="55" y="25" width="15" height="15" rx="3" fill="#000" />
-          <path d="M60,30 L60,35 L65,32.5 Z" fill="#fff" />
-          
-          {/* 小红书图标 */}
-          <rect x="35" y="45" width="15" height="15" rx="3" fill="#ff2442" />
-          <rect x="37" y="47" width="11" height="11" rx="1" fill="#fff" />
-          <path d="M40,49 L40,53 L43,51 Z" fill="#ff2442" />
-          
-          {/* 数据图表 */}
-          <rect x="55" y="45" width="15" height="15" rx="3" fill="#2575fc" />
-          <rect x="57" y="50" width="3" height="8" fill="#fff" />
-          <rect x="61" y="48" width="3" height="10" fill="#fff" />
-          <rect x="65" y="52" width="3" height="6" fill="#fff" />
-          
-          {/* 点赞图标 */}
-          <path d="M45,65 L45,75 L50,80 L55,75 L55,65 Z" fill="#ff5263" stroke="#000" strokeWidth="2" />
-          <rect x="48" y="68" width="4" height="6" fill="#fff" />
-        </svg>
-      )
-    },
-    {
-      title: "行政党宣",
-      desc: "统筹党支部建设、党员发展考核及党宣活动策划，擅长行政事务协调、多方需求对接；具备扎实的统筹规划与沟通能力，推进党务、行政工作标准化落地，获师生一致认可。",
-      icon: (
-        <svg viewBox="0 0 100 100" className="w-24 h-24" xmlns="http://www.w3.org/2000/svg">
-          {/* 办公桌 */}
-          <rect x="15" y="60" width="70" height="10" rx="2" fill="#8b4513" stroke="#000" strokeWidth="2" />
-          
-          {/* 文件堆 */}
-          <rect x="25" y="40" width="15" height="20" rx="2" fill="#fff" stroke="#000" strokeWidth="2" />
-          <rect x="27" y="42" width="11" height="16" fill="#f3f3f3" />
-          
-          {/* 党徽 */}
-          <rect x="45" y="30" width="10" height="30" rx="2" fill="#ff0000" stroke="#000" strokeWidth="2" />
-          <circle cx="50" cy="40" r="8" fill="#ffd700" stroke="#000" strokeWidth="1" />
-          <path d="M50,32 L52,38 L58,38 L54,42 L56,48 L50,44 L44,48 L46,42 L42,38 L48,38 Z" fill="#ff0000" />
-          
-          {/* 日历 */}
-          <rect x="60" y="40" width="15" height="20" rx="2" fill="#fff" stroke="#000" strokeWidth="2" />
-          <rect x="60" y="40" width="15" height="6" fill="#ff5263" />
-          <text x="67" y="45" textAnchor="middle" fontSize="4" fill="#fff">12</text>
-          <rect x="62" y="48" width="11" height="10" fill="#f3f3f3" />
-          
-          {/* 会议桌 */}
-          <rect x="30" y="50" width="40" height="8" rx="1" fill="#8b4513" />
-          
-          {/* 人员图标 */}
-          <circle cx="35" cy="45" r="3" fill="#2575fc" />
-          <circle cx="45" cy="45" r="3" fill="#2575fc" />
-          <circle cx="55" cy="45" r="3" fill="#2575fc" />
-          <circle cx="65" cy="45" r="3" fill="#2575fc" />
-          
-          {/* 笔和笔记本 */}
-          <rect x="75" y="35" width="8" height="15" rx="1" fill="#ffb822" />
-          <rect x="75" y="35" width="8" height="3" fill="#ff5263" />
-        </svg>
-      )
-    }
+  const stats = [
+    { value: "50w+", label: "稿件平均阅读量" },
+    { value: "百万级", label: "短视频播放" },
+    { value: "全网推荐", label: "中央网信办多篇推荐" }
   ];
+
+  const tools = [
+    { name: "剪映", note: "剪辑" },
+    { name: "Photoshop", note: "修图" },
+    { name: "Lightroom", note: "修图" },
+    { name: "After Effects", note: "动效" },
+    { name: "秀米", note: "排版" },
+    { name: "135编辑器", note: "排版" },
+    { name: "达芬奇", note: "调色" },
+    { name: "Python", note: "爬虫" }
+  ];
+
+  const abilities = [
+    { name: "内容生产", note: "热点选题挖掘" },
+    { name: "稿件撰写" },
+    { name: "摄影摄像" },
+    { name: "视频拍剪" },
+    { name: "短视频策划" },
+    { name: "账号运营", note: "微信 / 抖音 / 小红书" },
+    { name: "推文排版" },
+    { name: "活动策划" },
+    { name: "品牌推广" },
+    { name: "运营公关" },
+    { name: "行政党宣", note: "党支部建设" },
+    { name: "统筹协调" }
+  ];
+
+  const Chip = ({ name, note, hover }: { name: string; note?: string; hover: string }) => (
+    <span className={`inline-flex items-baseline gap-2 bg-white border-[3px] border-black rounded-xl px-4 py-2 font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 ${hover} transition-all cursor-default`}>
+      {name}
+      {note && <span className="text-xs font-bold text-gray-500">{note}</span>}
+    </span>
+  );
 
   return (
     <section className="py-24 px-6 max-w-7xl mx-auto text-center">
       <h2 className="text-5xl font-black mb-6">
         我的<span className="bg-[#ff5263] text-white px-4 py-1 inline-block transform rotate-1 hover:rotate-3 hover:scale-110 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 cursor-pointer">技能点</span>
       </h2>
-      <p className="text-gray-700 max-w-2xl mx-auto mb-16 font-medium text-lg">
+      <p className="text-gray-700 max-w-2xl mx-auto mb-12 font-medium text-lg">
         做有意义的事 <br /> Do something meaningful!
       </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-        {services.map((s, i) => (
-          <div key={i} className="bg-white border-[3px] border-black rounded-[2rem] overflow-hidden flex flex-col h-full shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
-            <div className="bg-[#f3f3f3] p-10 flex justify-center items-center border-b-[3px] border-black h-64 relative">
-               {s.icon}
-            </div>
-            <div className="p-8 flex-1 flex flex-col">
-              <h3 className="text-2xl font-bold mb-4">{s.title}</h3>
-              <p className="text-gray-700 font-medium leading-relaxed">{s.desc}</p>
-            </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-left">
+        {stats.map((s, i) => (
+          <div key={i} className="bg-[#ffb822] border-[3px] border-black rounded-2xl px-6 py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div className="text-3xl font-black">{s.value}</div>
+            <div className="text-sm font-bold text-black/70">{s.label}</div>
           </div>
         ))}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <div className="bg-white border-[3px] border-black rounded-[2rem] overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+          <div className="bg-[#2575fc] text-white px-8 py-4 border-b-[3px] border-black flex items-baseline gap-3">
+            <h3 className="text-2xl font-black">创作工具</h3>
+            <span className="text-xs font-bold tracking-widest opacity-80">TOOLS</span>
+          </div>
+          <div className="p-8 flex flex-wrap gap-3">
+            {tools.map((t) => <Chip key={t.name} {...t} hover="hover:shadow-[5px_5px_0px_0px_#2575fc]" />)}
+          </div>
+        </div>
+
+        <div className="bg-white border-[3px] border-black rounded-[2rem] overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+          <div className="bg-[#ff5263] text-white px-8 py-4 border-b-[3px] border-black flex items-baseline gap-3">
+            <h3 className="text-2xl font-black">核心能力</h3>
+            <span className="text-xs font-bold tracking-widest opacity-80">ABILITIES</span>
+          </div>
+          <div className="p-8 flex flex-wrap gap-3">
+            {abilities.map((a) => <Chip key={a.name} {...a} hover="hover:shadow-[5px_5px_0px_0px_#ff5263]" />)}
+          </div>
+        </div>
       </div>
     </section>
   );
